@@ -1,0 +1,8 @@
+include ':remote', ':domain'
+include ":app"
+include ":character"
+include ":location"
+include ":episode"
+include ":data"
+
+rootProject.name = "Rick And Morty"

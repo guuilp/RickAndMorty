@@ -1,0 +1,22 @@
+apply plugin: BuildPlugins.androidApplication
+apply from: "../build-system/android-module.gradle"
+
+android {
+    defaultConfig {
+        applicationId "guuilp.github.com.rickandmorty"
+    }
+}
+
+dependencies {
+    implementation(Libraries.kotlinStdLib)
+    implementation(Libraries.appCompat)
+    implementation(Libraries.material)
+    implementation(Libraries.constraintLayout)
+    implementation(Libraries.navigationFragment)
+    implementation(Libraries.navigationUi)
+    implementation(Libraries.liveData)
+    implementation(Libraries.viewModel)
+    implementation(Libraries.fragment)
+    implementation(Libraries.lifecycle)
+    testImplementation(TestLibraries.junit4)
+}

@@ -1,0 +1,14 @@
+apply plugin: 'kotlin-kapt'
+apply from: "../build-system/kotlin-module.gradle"
+
+dependencies {
+    implementation(RetrofitLibraries.retrofit)
+    implementation(RetrofitLibraries.moshiAdapter)
+    implementation(RetrofitLibraries.okhttp)
+    implementation(RetrofitLibraries.okhttpLogger)
+    implementation(Libraries.moshi)
+    kapt(Libraries.moshiCodeGen)
+    implementation KoinLibraries.koinCore
+
+    implementation project(Modules.data)
+}
