@@ -30,6 +30,7 @@ object Modules {
     const val location = ":location"
     const val episode = ":episode"
     const val data = ":data"
+    const val domain = ":domain"
 }
 
 object Libraries {

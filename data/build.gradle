@@ -1,1 +1,7 @@
 apply from: "../build-system/kotlin-module.gradle"
+
+dependencies {
+    implementation KoinLibraries.koinCore
+
+    implementation project(Modules.domain)
+}

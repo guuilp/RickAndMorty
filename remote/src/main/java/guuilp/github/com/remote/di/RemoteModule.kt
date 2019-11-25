@@ -1,6 +1,8 @@
 package guuilp.github.com.remote.di
 
 import guuilp.github.com.data.model.CharacterEntity
+import guuilp.github.com.data.repository.CharacterRemote
+import guuilp.github.com.remote.CharacterRemoteImpl
 import guuilp.github.com.remote.CharacterService
 import guuilp.github.com.remote.mapper.CharacterEntityMapper
 import guuilp.github.com.remote.mapper.EntityMapper
@@ -17,17 +19,17 @@ val remoteModule = module {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    single<OkHttpClient> {
+    single {
         OkHttpClient.Builder()
             .addInterceptor(logger)
             .build()
     }
 
-    single<Retrofit> {
+    single {
         Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
             .baseUrl("https://rickandmortyapi.com/api")
-            .client(get<OkHttpClient>())
+            .client(get())
             .build()
     }
 
@@ -37,5 +39,9 @@ val remoteModule = module {
 
     single<EntityMapper<CharacterResponse, CharacterEntity>> {
         CharacterEntityMapper()
+    }
+
+    single<CharacterRemote> {
+        CharacterRemoteImpl(get(), get())
     }
 }
