@@ -8,4 +8,6 @@ dependencies {
     testImplementation TestLibraries.coroutines
 
     implementation project(Modules.domain)
+    api project(Modules.dataModel)
+    testImplementation project(Modules.testCore)
 }

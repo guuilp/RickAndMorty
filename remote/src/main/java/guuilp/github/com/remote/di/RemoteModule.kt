@@ -1,12 +1,12 @@
 package guuilp.github.com.remote.di
 
-import guuilp.github.com.data.model.CharacterEntity
-import guuilp.github.com.data.repository.CharacterRemote
-import guuilp.github.com.remote.CharacterRemoteImpl
-import guuilp.github.com.remote.CharacterService
-import guuilp.github.com.remote.mapper.CharacterEntityMapper
-import guuilp.github.com.remote.mapper.EntityMapper
-import guuilp.github.com.remote.model.character.CharacterResponse
+import guuilp.github.com.data.character.repository.CharacterRemote
+import guuilp.github.com.data_model.character.CharacterEntity
+import guuilp.github.com.remote.character.CharacterRemoteImpl
+import guuilp.github.com.remote.character.CharacterService
+import guuilp.github.com.remote.character.mapper.CharacterEntityMapper
+import guuilp.github.com.remote.common.EntityMapper
+import guuilp.github.com.remote.character.model.CharacterResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

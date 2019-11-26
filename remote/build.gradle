@@ -9,6 +9,10 @@ dependencies {
     implementation(Libraries.moshi)
     kapt(Libraries.moshiCodeGen)
     implementation KoinLibraries.koinCore
+    testImplementation TestLibraries.junit4
+    testImplementation TestLibraries.junitKotlin
+    testImplementation TestLibraries.mockk
+    testImplementation TestLibraries.coroutines
 
     implementation project(Modules.data)
 }
