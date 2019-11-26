@@ -1,8 +1,12 @@
-include ':remote', ':domain'
+include ":remote"
 include ":app"
 include ":character"
 include ":location"
 include ":episode"
 include ":data"
+include ":data-model"
+include ":domain"
+include ":domain-model"
+include ":test-core"
 
 rootProject.name = "Rick And Morty"

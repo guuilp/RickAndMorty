@@ -30,7 +30,11 @@ object Modules {
     const val location = ":location"
     const val episode = ":episode"
     const val data = ":data"
+    const val dataModel = ":data-model"
     const val domain = ":domain"
+    const val domainModel = ":domain-model"
+    const val remote = ":remote"
+    const val testCore = ":test-core"
 }
 
 private object SharedVersions {
