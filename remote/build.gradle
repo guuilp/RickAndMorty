@@ -1,5 +1,5 @@
-apply plugin: 'kotlin-kapt'
 apply from: "../build-system/kotlin-module.gradle"
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation(RetrofitLibraries.retrofit)
@@ -15,4 +15,5 @@ dependencies {
     testImplementation TestLibraries.coroutines
 
     implementation project(Modules.data)
+    testImplementation project(Modules.testCore)
 }

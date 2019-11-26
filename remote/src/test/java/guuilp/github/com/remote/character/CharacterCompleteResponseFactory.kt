@@ -1,6 +1,5 @@
 package guuilp.github.com.remote.character
 
-import com.squareup.moshi.Json
 import guuilp.github.com.remote.character.model.CharacterCompleteResponse
 import guuilp.github.com.remote.character.model.CharacterResponse
 import guuilp.github.com.remote.character.model.LocationCharacterResponse
