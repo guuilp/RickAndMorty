@@ -8,8 +8,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import guuilp.github.com.character.R
+import guuilp.github.com.character.di.characterModule
 import guuilp.github.com.character.presentation.CharacterViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
+
+private val loadFeature by lazy { loadKoinModules(characterModule) }
+private fun injectFeature() = loadFeature
 
 class CharacterFragment : Fragment() {
 
@@ -23,6 +28,8 @@ class CharacterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        injectFeature()
 
         characterViewModel.characters.observe(viewLifecycleOwner) {
             Toast.makeText(context, it.size.toString(), Toast.LENGTH_LONG).show()

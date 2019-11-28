@@ -1,7 +1,6 @@
 package guuilp.github.com.rickandmorty
 
 import android.app.Application
-import guuilp.github.com.character.di.characterModule
 import guuilp.github.com.data.di.dataModule
 import guuilp.github.com.domain.di.domainModule
 import guuilp.github.com.remote.di.remoteModule
@@ -15,7 +14,7 @@ class RickAndMortyApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@RickAndMortyApplication)
-            modules(listOf(remoteModule, dataModule, domainModule, characterModule))
+            modules(listOf(remoteModule, dataModule, domainModule))
         }
     }
 }
