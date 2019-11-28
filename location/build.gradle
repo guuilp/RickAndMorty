@@ -11,6 +11,5 @@ dependencies {
     implementation(Libraries.liveData)
     implementation(Libraries.viewModel)
     implementation(Libraries.fragment)
-    implementation(Libraries.lifecycle)
     testImplementation(TestLibraries.junit4)
 }

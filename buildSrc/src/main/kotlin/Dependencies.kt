@@ -44,12 +44,11 @@ private object SharedVersions {
 
 object Libraries {
     private object Versions {
-        const val appCompat = "1.0.0-beta01"
+        const val appCompat = "1.1.0"
         const val constraintLayout = "1.1.3"
         const val navigation = "2.1.0"
         const val ktx = "2.1.0"
         const val fragment = "1.1.0"
-        const val lifecycle = "1.1.0"
         const val material = "1.0.0"
         const val moshi = "1.9.2"
     }
@@ -63,7 +62,6 @@ object Libraries {
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.ktx}"
     const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.ktx}"
-    const val lifecycle = "android.arch.lifecycle:extensions:${Versions.lifecycle}"
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
@@ -99,10 +97,12 @@ object TestLibraries {
     private object Versions {
         const val junit4 = "4.12"
         const val mockk = "1.9.3"
+        const val lifecycle = "2.1.0"
     }
 
     const val junit4 = "junit:junit:${Versions.junit4}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${SharedVersions.coroutines}"
     const val junitKotlin = "org.jetbrains.kotlin:kotlin-test-junit:${SharedVersions.kotlin}"
+    const val lifecycleTesting = "androidx.arch.core:core-testing:${Versions.lifecycle}"
 }

@@ -11,8 +11,15 @@ dependencies {
     implementation(Libraries.liveData)
     implementation(Libraries.viewModel)
     implementation(Libraries.fragment)
-    implementation(Libraries.lifecycle)
-    testImplementation(TestLibraries.junit4)
+    implementation(KoinLibraries.koinAndroid)
+    implementation(KoinLibraries.koinViewModel)
+
+    testImplementation TestLibraries.junit4
+    testImplementation TestLibraries.junitKotlin
+    testImplementation TestLibraries.mockk
+    testImplementation TestLibraries.coroutines
+    testImplementation TestLibraries.lifecycleTesting
+    testImplementation project(Modules.testCore)
 
     implementation project(Modules.domain)
 }

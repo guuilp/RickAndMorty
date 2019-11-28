@@ -19,16 +19,16 @@ val remoteModule = module {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    single {
+    single<OkHttpClient> {
         OkHttpClient.Builder()
             .addInterceptor(logger)
             .build()
     }
 
-    single {
+    single<Retrofit> {
         Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
-            .baseUrl("https://rickandmortyapi.com/api")
+            .baseUrl("https://rickandmortyapi.com/api/")
             .client(get())
             .build()
     }
