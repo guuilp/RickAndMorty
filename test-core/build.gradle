@@ -2,4 +2,7 @@ apply from: "../build-system/kotlin-module.gradle"
 
 dependencies {
     implementation project(Modules.domainModel)
+    implementation TestLibraries.coroutines
+    implementation TestLibraries.junit4
+    implementation TestLibraries.junitKotlin
 }
