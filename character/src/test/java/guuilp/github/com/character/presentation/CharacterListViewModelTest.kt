@@ -15,24 +15,24 @@ import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class CharacterViewModelTest {
+class CharacterListViewModelTest {
 
     @get:Rule
     val instantTask = InstantTaskExecutorRule()
     @get:Rule
     val coroutinesRule = CoroutinesTestRule()
 
-    private lateinit var characterViewModel: CharacterViewModel
+    private lateinit var characterListViewModel: CharacterListViewModel
     private val getAllCharactersUseCase = mockk<UseCase<List<CharacterModel>, Void?>>()
 
     @Before
     fun setup() {
         coEvery { getAllCharactersUseCase() } answers { CharacterModelFactory.makeList() }
-        characterViewModel = CharacterViewModel(getAllCharactersUseCase)
+        characterListViewModel = CharacterListViewModel(getAllCharactersUseCase)
     }
 
     @Test
     fun getCharacters() = coroutinesRule.testDispatcher.runBlockingTest {
-        assertNotNull(characterViewModel.characters.value)
+        assertNotNull(characterListViewModel.characters.value)
     }
 }

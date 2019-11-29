@@ -1,5 +1,6 @@
 apply plugin: "com.android.library"
 apply from: "../build-system/android-module.gradle"
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation(Libraries.kotlinStdLib)
@@ -11,8 +12,10 @@ dependencies {
     implementation(Libraries.liveData)
     implementation(Libraries.viewModel)
     implementation(Libraries.fragment)
+    implementation(Libraries.fragmentKtx)
     implementation(KoinLibraries.koinAndroid)
     implementation(KoinLibraries.koinViewModel)
+    implementation(Libraries.coil)
 
     testImplementation TestLibraries.junit4
     testImplementation TestLibraries.junitKotlin

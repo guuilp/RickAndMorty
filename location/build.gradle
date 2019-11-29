@@ -10,6 +10,6 @@ dependencies {
     implementation(Libraries.navigationUi)
     implementation(Libraries.liveData)
     implementation(Libraries.viewModel)
-    implementation(Libraries.fragment)
+    implementation(Libraries.fragmentKtx)
     testImplementation(TestLibraries.junit4)
 }

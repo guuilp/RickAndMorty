@@ -48,9 +48,10 @@ object Libraries {
         const val constraintLayout = "1.1.3"
         const val navigation = "2.1.0"
         const val ktx = "2.1.0"
-        const val fragment = "1.1.0"
+        const val fragment = "1.2.0-rc02"
         const val material = "1.0.0"
         const val moshi = "1.9.2"
+        const val coil = "0.8.0"
     }
 
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${SharedVersions.kotlin}"
@@ -62,12 +63,14 @@ object Libraries {
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.ktx}"
     const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.ktx}"
-    const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragment}"
+    const val fragment = "androidx.fragment:fragment:${Versions.fragment}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
     const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     const val moshiCodeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${SharedVersions.coroutines}"
+    const val coil = "io.coil-kt:coil:${Versions.coil}"
 }
 
 object RetrofitLibraries {

@@ -1,25 +1,24 @@
 package guuilp.github.com.domain_model.character
 
 data class CharacterModel(
-    val id: Int,
-    val episode: List<String>,
-    val gender: String,
-    val image: String,
+    val id: String,
+    val episodeIdList: List<String>,
+    val gender: Gender,
+    val imageUrl: String,
     val location: LocationCharacterModel,
     val name: String,
     val origin: OriginCharacterModel,
     val species: String,
-    val status: String,
-    val type: String,
-    val url: String
+    val status: Status,
+    val type: String
 )
 
 data class LocationCharacterModel(
-    val name: String,
-    val url: String
+    val id: String,
+    val name: String
 )
 
 data class OriginCharacterModel(
-    val name: String,
-    val url: String
+    val id: String,
+    val name: String
 )

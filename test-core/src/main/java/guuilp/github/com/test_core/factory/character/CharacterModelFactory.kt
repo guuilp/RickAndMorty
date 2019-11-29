@@ -1,8 +1,6 @@
 package guuilp.github.com.test_core.factory.character
 
-import guuilp.github.com.domain_model.character.CharacterModel
-import guuilp.github.com.domain_model.character.LocationCharacterModel
-import guuilp.github.com.domain_model.character.OriginCharacterModel
+import guuilp.github.com.domain_model.character.*
 import guuilp.github.com.test_core.util.RandomUtil
 
 object CharacterModelFactory {
@@ -14,38 +12,36 @@ object CharacterModelFactory {
     }
 
     fun make(
-        id: Int = RandomUtil.int(),
+        id: String = RandomUtil.string(),
         episode: List<String> = RandomUtil.stringList(),
-        gender: String = RandomUtil.string(),
+        gender: Gender = RandomUtil.enum(Gender::class.java),
         image: String = RandomUtil.string(),
         location: LocationCharacterModel = makeLocationCharacterEntity(),
         name: String = RandomUtil.string(),
         origin: OriginCharacterModel = makeOriginCharacterEntity(),
         species: String = RandomUtil.string(),
-        status: String = RandomUtil.string(),
-        type: String = RandomUtil.string(),
-        url: String = RandomUtil.string()
+        status: Status = RandomUtil.enum(Status::class.java),
+        type: String = RandomUtil.string()
     ) = CharacterModel(
         id = id,
-        episode = episode,
+        episodeIdList = episode,
         gender = gender,
-        image = image,
+        imageUrl = image,
         location = location,
         name = name,
         origin = origin,
         species = species,
         status = status,
-        type = type,
-        url = url
+        type = type
     )
 
     private fun makeLocationCharacterEntity(
-        name: String = RandomUtil.string(),
-        url: String = RandomUtil.string()
-    ) = LocationCharacterModel(name = name, url = url)
+        id: String = RandomUtil.string(),
+        name: String = RandomUtil.string()
+    ) = LocationCharacterModel(id = id, name = name)
 
     private fun makeOriginCharacterEntity(
-        name: String = RandomUtil.string(),
-        url: String = RandomUtil.string()
-    ) = OriginCharacterModel(name = name, url = url)
+        id: String = RandomUtil.string(),
+        name: String = RandomUtil.string()
+    ) = OriginCharacterModel(id = id, name = name)
 }

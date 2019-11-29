@@ -27,9 +27,9 @@ object CharacterEntityFactory {
         url: String = RandomUtil.string()
     ) = CharacterEntity(
         id = id,
-        episode = episode,
+        episodeIdList = episode,
         gender = gender,
-        image = image,
+        imageUrl = image,
         location = location,
         name = name,
         origin = origin,
@@ -42,10 +42,10 @@ object CharacterEntityFactory {
     private fun makeLocationCharacterEntity(
         name: String = RandomUtil.string(),
         url: String = RandomUtil.string()
-    ) = LocationCharacterEntity(name = name, url = url)
+    ) = LocationCharacterEntity(name = name, id = url)
 
     private fun makeOriginCharacterEntity(
         name: String = RandomUtil.string(),
         url: String = RandomUtil.string()
-    ) = OriginCharacterEntity(name = name, url = url)
+    ) = OriginCharacterEntity(name = name, id = url)
 }
