@@ -2,7 +2,7 @@ package guuilp.github.com.character.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import guuilp.github.com.character.common.Mapper
-import guuilp.github.com.character.factory.CharacterViewFactory
+import guuilp.github.com.character.factory.CharacterListItemViewFactory
 import guuilp.github.com.character.model.CharacterListItemView
 import guuilp.github.com.domain.common.UseCase
 import guuilp.github.com.domain_model.character.CharacterDomain
@@ -33,7 +33,7 @@ class CharacterListViewModelTest {
     @Before
     fun setup() {
         coEvery { getAllCharactersUseCase() } answers { CharacterModelFactory.makeList() }
-        every { characterViewMapper.mapToView(any()) } answers { CharacterViewFactory.make() }
+        every { characterViewMapper.mapToView(any()) } answers { CharacterListItemViewFactory.make() }
         characterListViewModel = CharacterListViewModel(
             getAllCharactersUseCase,
             characterViewMapper

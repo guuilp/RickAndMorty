@@ -7,17 +7,17 @@ import guuilp.github.com.domain_model.character.Gender
 import guuilp.github.com.domain_model.character.Status
 import guuilp.github.com.test_core.util.RandomUtil
 
-object CharacterViewFactory {
+object CharacterListItemViewFactory {
 
     fun make(
         id: String = RandomUtil.string(),
-        gender: Gender = RandomUtil.enum(Gender::class.java),
+        gender: String = RandomUtil.string(),
         image: String = RandomUtil.string(),
         location: LocationCharacterView = makeLocationCharacterView(),
         name: String = RandomUtil.string(),
         origin: OriginCharacterView = makeOriginCharacterView(),
         species: String = RandomUtil.string(),
-        status: Status = RandomUtil.enum(Status::class.java),
+        status: String = RandomUtil.string(),
         type: String = RandomUtil.string()
     ) = CharacterListItemView(
         id = id,
