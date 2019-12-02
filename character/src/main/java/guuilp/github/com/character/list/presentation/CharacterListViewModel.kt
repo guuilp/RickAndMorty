@@ -1,9 +1,9 @@
-package guuilp.github.com.character.presentation
+package guuilp.github.com.character.list.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import guuilp.github.com.character.common.Mapper
-import guuilp.github.com.character.model.CharacterListItemView
+import guuilp.github.com.character.list.model.CharacterListItemView
 import guuilp.github.com.domain.common.UseCase
 import guuilp.github.com.domain_model.character.CharacterDomain
 import kotlinx.coroutines.launch

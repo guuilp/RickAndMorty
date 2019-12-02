@@ -1,10 +1,8 @@
 package guuilp.github.com.character.factory
 
-import guuilp.github.com.character.model.CharacterListItemView
-import guuilp.github.com.character.model.LocationCharacterView
-import guuilp.github.com.character.model.OriginCharacterView
-import guuilp.github.com.domain_model.character.Gender
-import guuilp.github.com.domain_model.character.Status
+import guuilp.github.com.character.list.model.CharacterListItemView
+import guuilp.github.com.character.list.model.LocationCharacterView
+import guuilp.github.com.character.list.model.OriginCharacterView
 import guuilp.github.com.test_core.util.RandomUtil
 
 object CharacterListItemViewFactory {

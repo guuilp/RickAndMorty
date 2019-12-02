@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="guuilp.github.com.character.presentation.CharacterListViewModel" />
+            type="guuilp.github.com.character.list.presentation.CharacterListViewModel" />
     </data>
 
     <LinearLayout

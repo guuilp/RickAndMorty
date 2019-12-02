@@ -1,4 +1,4 @@
-package guuilp.github.com.character.ui
+package guuilp.github.com.character.list.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import guuilp.github.com.character.databinding.FragmentCharacterListBinding
 import guuilp.github.com.character.di.characterModule
-import guuilp.github.com.character.presentation.CharacterListViewModel
+import guuilp.github.com.character.list.presentation.CharacterListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 

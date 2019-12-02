@@ -1,4 +1,4 @@
-package guuilp.github.com.character.model
+package guuilp.github.com.character.list.model
 
 import guuilp.github.com.character.common.StableItem
 

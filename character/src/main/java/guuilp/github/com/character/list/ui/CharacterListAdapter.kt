@@ -1,4 +1,4 @@
-package guuilp.github.com.character.ui
+package guuilp.github.com.character.list.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import guuilp.github.com.character.common.HashItemCallback
 import guuilp.github.com.character.databinding.CharacterListItemBinding
-import guuilp.github.com.character.model.CharacterListItemView
+import guuilp.github.com.character.list.model.CharacterListItemView
 
 class CharacterListAdapter : ListAdapter<CharacterListItemView, CharacterListAdapter.ViewHolder>(
     HashItemCallback()
