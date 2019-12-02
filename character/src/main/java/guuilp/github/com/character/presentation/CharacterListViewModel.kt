@@ -1,6 +1,5 @@
 package guuilp.github.com.character.presentation
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import guuilp.github.com.character.common.Mapper
@@ -11,14 +10,14 @@ import kotlinx.coroutines.launch
 
 class CharacterListViewModel(
     getAllCharactersUseCase: UseCase<List<CharacterDomain>, Void?>,
-    characterViewMapper: Mapper<CharacterDomain, CharacterView>
+    characterViewMapper: Mapper<CharacterDomain, CharacterView>,
+    val model: CharacterListModel = CharacterListModel()
 ) : ViewModel() {
-
-    val characters = MutableLiveData<List<CharacterView>>()
 
     init {
         viewModelScope.launch {
-            characters.postValue(getAllCharactersUseCase().map { characterViewMapper.mapToView(it) })
+            val result = getAllCharactersUseCase().map { characterViewMapper.mapToView(it) }
+            model.characters.postValue(result)
         }
     }
 }

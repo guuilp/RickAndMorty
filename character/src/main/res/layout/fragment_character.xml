@@ -14,7 +14,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/characterList"
-            app:items="@{viewModel.characters}"
+            app:items="@{viewModel.model.characters}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

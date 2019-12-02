@@ -42,6 +42,6 @@ class CharacterListViewModelTest {
 
     @Test
     fun getCharacters() = coroutinesRule.testDispatcher.runBlockingTest {
-        assertNotNull(characterListViewModel.characters.value)
+        assertNotNull(characterListViewModel.model.characters.value)
     }
 }
