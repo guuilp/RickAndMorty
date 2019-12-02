@@ -9,5 +9,5 @@
         android:id="@+id/navigation_character"
         android:name="guuilp.github.com.character.ui.CharacterListFragment"
         android:label="@string/title_character"
-        tools:layout="@layout/fragment_character" />
+        tools:layout="@layout/fragment_character_list" />
 </navigation>

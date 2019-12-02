@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import guuilp.github.com.character.databinding.FragmentCharacterBinding
+import guuilp.github.com.character.databinding.FragmentCharacterListBinding
 import guuilp.github.com.character.di.characterModule
 import guuilp.github.com.character.presentation.CharacterListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,7 +23,7 @@ class CharacterListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return FragmentCharacterBinding.inflate(inflater, container, false).apply {
+        return FragmentCharacterListBinding.inflate(inflater, container, false).apply {
             injectFeature()
             lifecycleOwner = viewLifecycleOwner
             viewModel = characterListViewModel
