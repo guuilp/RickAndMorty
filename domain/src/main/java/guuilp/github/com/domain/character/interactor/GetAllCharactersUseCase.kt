@@ -2,10 +2,10 @@ package guuilp.github.com.domain.character.interactor
 
 import guuilp.github.com.domain.common.UseCase
 import guuilp.github.com.domain.character.repository.CharacterRepository
-import guuilp.github.com.domain_model.character.CharacterModel
+import guuilp.github.com.domain_model.character.CharacterDomain
 
 class GetAllCharactersUseCase(
     private val characterRepository: CharacterRepository
-) : UseCase<List<CharacterModel>, Void?> {
+) : UseCase<List<CharacterDomain>, Void?> {
     override suspend operator fun invoke(params: Void?) = characterRepository.getAllCharacters()
 }

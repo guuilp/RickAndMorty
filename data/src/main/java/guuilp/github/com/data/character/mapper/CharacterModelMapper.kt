@@ -6,19 +6,19 @@ import guuilp.github.com.data_model.character.LocationCharacterEntity
 import guuilp.github.com.data_model.character.OriginCharacterEntity
 import guuilp.github.com.domain_model.character.*
 
-class CharacterModelMapper : Mapper<CharacterEntity, CharacterModel> {
-    override fun mapFromEntity(from: CharacterEntity): CharacterModel {
-        return CharacterModel(
+class CharacterModelMapper : Mapper<CharacterEntity, CharacterDomain> {
+    override fun mapFromEntity(from: CharacterEntity): CharacterDomain {
+        return CharacterDomain(
             id = from.id,
             episodeIdList = from.episodeIdList,
             gender = mapGender(from.gender),
             imageUrl = from.imageUrl,
-            location = LocationCharacterModel(
+            location = LocationCharacterDomain(
                 id = from.location.id,
                 name = from.location.name
             ),
             name = from.name,
-            origin = OriginCharacterModel(
+            origin = OriginCharacterDomain(
                 id = from.origin.id,
                 name = from.origin.name
             ),
@@ -58,7 +58,7 @@ class CharacterModelMapper : Mapper<CharacterEntity, CharacterModel> {
         else -> "unknown"
     }
 
-    override fun mapToEntity(from: CharacterModel): CharacterEntity {
+    override fun mapToEntity(from: CharacterDomain): CharacterEntity {
         return CharacterEntity(
             id = from.id,
             episodeIdList = from.episodeIdList,

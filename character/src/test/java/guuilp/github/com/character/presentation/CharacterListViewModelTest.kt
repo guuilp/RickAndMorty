@@ -5,7 +5,7 @@ import guuilp.github.com.character.common.Mapper
 import guuilp.github.com.character.factory.CharacterViewFactory
 import guuilp.github.com.character.model.CharacterView
 import guuilp.github.com.domain.common.UseCase
-import guuilp.github.com.domain_model.character.CharacterModel
+import guuilp.github.com.domain_model.character.CharacterDomain
 import guuilp.github.com.test_core.factory.character.CharacterModelFactory
 import guuilp.github.com.test_core.util.CoroutinesTestRule
 import io.mockk.coEvery
@@ -27,8 +27,8 @@ class CharacterListViewModelTest {
     val coroutinesRule = CoroutinesTestRule()
 
     private lateinit var characterListViewModel: CharacterListViewModel
-    private val getAllCharactersUseCase = mockk<UseCase<List<CharacterModel>, Void?>>()
-    private val characterViewMapper = mockk<Mapper<CharacterModel, CharacterView>>()
+    private val getAllCharactersUseCase = mockk<UseCase<List<CharacterDomain>, Void?>>()
+    private val characterViewMapper = mockk<Mapper<CharacterDomain, CharacterView>>()
 
     @Before
     fun setup() {

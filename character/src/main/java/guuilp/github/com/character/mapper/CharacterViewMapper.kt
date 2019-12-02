@@ -4,10 +4,10 @@ import guuilp.github.com.character.common.Mapper
 import guuilp.github.com.character.model.CharacterView
 import guuilp.github.com.character.model.LocationCharacterView
 import guuilp.github.com.character.model.OriginCharacterView
-import guuilp.github.com.domain_model.character.CharacterModel
+import guuilp.github.com.domain_model.character.CharacterDomain
 
-class CharacterViewMapper : Mapper<CharacterModel, CharacterView> {
-    override fun mapToView(from: CharacterModel) = CharacterView(
+class CharacterViewMapper : Mapper<CharacterDomain, CharacterView> {
+    override fun mapToView(from: CharacterDomain) = CharacterView(
         id = from.id,
         gender = from.gender,
         imageUrl = from.imageUrl,

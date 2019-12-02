@@ -7,7 +7,7 @@ object CharacterModelFactory {
 
     fun makeList(
         quantity: Int = RandomUtil.int()
-    ) = mutableListOf<CharacterModel>().apply {
+    ) = mutableListOf<CharacterDomain>().apply {
         repeat(quantity) { add(make()) }
     }
 
@@ -16,13 +16,13 @@ object CharacterModelFactory {
         episode: List<String> = RandomUtil.stringList(),
         gender: Gender = RandomUtil.enum(Gender::class.java),
         image: String = RandomUtil.string(),
-        location: LocationCharacterModel = makeLocationCharacterModel(),
+        location: LocationCharacterDomain = makeLocationCharacterModel(),
         name: String = RandomUtil.string(),
-        origin: OriginCharacterModel = makeOriginCharacterModel(),
+        origin: OriginCharacterDomain = makeOriginCharacterModel(),
         species: String = RandomUtil.string(),
         status: Status = RandomUtil.enum(Status::class.java),
         type: String = RandomUtil.string()
-    ) = CharacterModel(
+    ) = CharacterDomain(
         id = id,
         episodeIdList = episode,
         gender = gender,
@@ -38,10 +38,10 @@ object CharacterModelFactory {
     private fun makeLocationCharacterModel(
         id: String = RandomUtil.string(),
         name: String = RandomUtil.string()
-    ) = LocationCharacterModel(id = id, name = name)
+    ) = LocationCharacterDomain(id = id, name = name)
 
     private fun makeOriginCharacterModel(
         id: String = RandomUtil.string(),
         name: String = RandomUtil.string()
-    ) = OriginCharacterModel(id = id, name = name)
+    ) = OriginCharacterDomain(id = id, name = name)
 }

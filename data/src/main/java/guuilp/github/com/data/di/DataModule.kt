@@ -5,11 +5,11 @@ import guuilp.github.com.data.character.mapper.CharacterModelMapper
 import guuilp.github.com.data.common.Mapper
 import guuilp.github.com.data_model.character.CharacterEntity
 import guuilp.github.com.domain.character.repository.CharacterRepository
-import guuilp.github.com.domain_model.character.CharacterModel
+import guuilp.github.com.domain_model.character.CharacterDomain
 import org.koin.dsl.module
 
 val dataModule = module {
-    single<Mapper<CharacterEntity, CharacterModel>> {
+    single<Mapper<CharacterEntity, CharacterDomain>> {
         CharacterModelMapper()
     }
 

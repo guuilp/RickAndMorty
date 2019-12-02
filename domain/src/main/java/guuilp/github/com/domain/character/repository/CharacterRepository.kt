@@ -1,7 +1,7 @@
 package guuilp.github.com.domain.character.repository
 
-import guuilp.github.com.domain_model.character.CharacterModel
+import guuilp.github.com.domain_model.character.CharacterDomain
 
 interface CharacterRepository {
-    suspend fun getAllCharacters(): List<CharacterModel>
+    suspend fun getAllCharacters(): List<CharacterDomain>
 }
