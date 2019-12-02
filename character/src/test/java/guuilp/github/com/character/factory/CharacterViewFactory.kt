@@ -1,30 +1,26 @@
-package guuilp.github.com.test_core.factory.character
+package guuilp.github.com.character.factory
 
-import guuilp.github.com.domain_model.character.*
+import guuilp.github.com.character.model.CharacterView
+import guuilp.github.com.character.model.LocationCharacterView
+import guuilp.github.com.character.model.OriginCharacterView
+import guuilp.github.com.domain_model.character.Gender
+import guuilp.github.com.domain_model.character.Status
 import guuilp.github.com.test_core.util.RandomUtil
 
-object CharacterModelFactory {
-
-    fun makeList(
-        quantity: Int = RandomUtil.int()
-    ) = mutableListOf<CharacterModel>().apply {
-        repeat(quantity) { add(make()) }
-    }
+object CharacterViewFactory {
 
     fun make(
         id: String = RandomUtil.string(),
-        episode: List<String> = RandomUtil.stringList(),
         gender: Gender = RandomUtil.enum(Gender::class.java),
         image: String = RandomUtil.string(),
-        location: LocationCharacterModel = makeLocationCharacterModel(),
+        location: LocationCharacterView = makeLocationCharacterView(),
         name: String = RandomUtil.string(),
-        origin: OriginCharacterModel = makeOriginCharacterModel(),
+        origin: OriginCharacterView = makeOriginCharacterView(),
         species: String = RandomUtil.string(),
         status: Status = RandomUtil.enum(Status::class.java),
         type: String = RandomUtil.string()
-    ) = CharacterModel(
+    ) = CharacterView(
         id = id,
-        episodeIdList = episode,
         gender = gender,
         imageUrl = image,
         location = location,
@@ -35,13 +31,13 @@ object CharacterModelFactory {
         type = type
     )
 
-    private fun makeLocationCharacterModel(
+    private fun makeLocationCharacterView(
         id: String = RandomUtil.string(),
         name: String = RandomUtil.string()
-    ) = LocationCharacterModel(id = id, name = name)
+    ) = LocationCharacterView(id = id, name = name)
 
-    private fun makeOriginCharacterModel(
+    private fun makeOriginCharacterView(
         id: String = RandomUtil.string(),
         name: String = RandomUtil.string()
-    ) = OriginCharacterModel(id = id, name = name)
+    ) = OriginCharacterView(id = id, name = name)
 }

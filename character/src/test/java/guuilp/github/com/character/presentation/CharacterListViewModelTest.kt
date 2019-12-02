@@ -1,11 +1,15 @@
 package guuilp.github.com.character.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import guuilp.github.com.character.common.Mapper
+import guuilp.github.com.character.factory.CharacterViewFactory
+import guuilp.github.com.character.model.CharacterView
 import guuilp.github.com.domain.common.UseCase
 import guuilp.github.com.domain_model.character.CharacterModel
 import guuilp.github.com.test_core.factory.character.CharacterModelFactory
 import guuilp.github.com.test_core.util.CoroutinesTestRule
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -24,11 +28,16 @@ class CharacterListViewModelTest {
 
     private lateinit var characterListViewModel: CharacterListViewModel
     private val getAllCharactersUseCase = mockk<UseCase<List<CharacterModel>, Void?>>()
+    private val characterViewMapper = mockk<Mapper<CharacterModel, CharacterView>>()
 
     @Before
     fun setup() {
         coEvery { getAllCharactersUseCase() } answers { CharacterModelFactory.makeList() }
-        characterListViewModel = CharacterListViewModel(getAllCharactersUseCase)
+        every { characterViewMapper.mapToView(any()) } answers { CharacterViewFactory.make() }
+        characterListViewModel = CharacterListViewModel(
+            getAllCharactersUseCase,
+            characterViewMapper
+        )
     }
 
     @Test

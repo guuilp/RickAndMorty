@@ -4,6 +4,7 @@ import guuilp.github.com.character.common.StableItem
 import guuilp.github.com.domain_model.character.Gender
 import guuilp.github.com.domain_model.character.Status
 
+
 data class CharacterView(
     val id: String,
     val gender: Gender,

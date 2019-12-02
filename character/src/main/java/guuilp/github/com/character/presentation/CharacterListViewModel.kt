@@ -1,6 +1,5 @@
 package guuilp.github.com.character.presentation
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,7 +17,6 @@ class CharacterListViewModel(
     val characters = MutableLiveData<List<CharacterView>>()
 
     init {
-        Log.d("GLP", "Init")
         viewModelScope.launch {
             characters.postValue(getAllCharactersUseCase().map { characterViewMapper.mapToView(it) })
         }
