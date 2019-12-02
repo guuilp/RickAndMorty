@@ -3,7 +3,7 @@ package guuilp.github.com.character.presentation
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import guuilp.github.com.character.common.Mapper
 import guuilp.github.com.character.factory.CharacterViewFactory
-import guuilp.github.com.character.model.CharacterView
+import guuilp.github.com.character.model.CharacterListItemView
 import guuilp.github.com.domain.common.UseCase
 import guuilp.github.com.domain_model.character.CharacterDomain
 import guuilp.github.com.test_core.factory.character.CharacterModelFactory
@@ -28,7 +28,7 @@ class CharacterListViewModelTest {
 
     private lateinit var characterListViewModel: CharacterListViewModel
     private val getAllCharactersUseCase = mockk<UseCase<List<CharacterDomain>, Void?>>()
-    private val characterViewMapper = mockk<Mapper<CharacterDomain, CharacterView>>()
+    private val characterViewMapper = mockk<Mapper<CharacterDomain, CharacterListItemView>>()
 
     @Before
     fun setup() {

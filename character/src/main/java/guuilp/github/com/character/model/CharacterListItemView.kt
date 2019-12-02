@@ -1,21 +1,18 @@
 package guuilp.github.com.character.model
 
 import guuilp.github.com.character.common.StableItem
-import guuilp.github.com.domain_model.character.Gender
-import guuilp.github.com.domain_model.character.Status
 
-
-data class CharacterView(
+data class CharacterListItemView(
     val id: String,
-    val gender: Gender,
+    val gender: String,
     val imageUrl: String,
     val location: LocationCharacterView,
     val name: String,
     val origin: OriginCharacterView,
     val species: String,
-    val status: Status,
+    val status: String,
     val type: String
-): StableItem {
+) : StableItem {
     override val stableId = id
 }
 

@@ -1,6 +1,6 @@
 package guuilp.github.com.character.factory
 
-import guuilp.github.com.character.model.CharacterView
+import guuilp.github.com.character.model.CharacterListItemView
 import guuilp.github.com.character.model.LocationCharacterView
 import guuilp.github.com.character.model.OriginCharacterView
 import guuilp.github.com.domain_model.character.Gender
@@ -19,7 +19,7 @@ object CharacterViewFactory {
         species: String = RandomUtil.string(),
         status: Status = RandomUtil.enum(Status::class.java),
         type: String = RandomUtil.string()
-    ) = CharacterView(
+    ) = CharacterListItemView(
         id = id,
         gender = gender,
         imageUrl = image,

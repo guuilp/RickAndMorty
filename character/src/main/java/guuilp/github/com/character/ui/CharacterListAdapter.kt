@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import guuilp.github.com.character.common.HashItemCallback
 import guuilp.github.com.character.databinding.CharacterListItemBinding
-import guuilp.github.com.character.model.CharacterView
+import guuilp.github.com.character.model.CharacterListItemView
 
-class CharacterListAdapter : ListAdapter<CharacterView, CharacterListAdapter.ViewHolder>(
+class CharacterListAdapter : ListAdapter<CharacterListItemView, CharacterListAdapter.ViewHolder>(
     HashItemCallback()
 ) {
 

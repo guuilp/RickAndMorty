@@ -11,7 +11,7 @@ class CharacterModelMapper : Mapper<CharacterEntity, CharacterDomain> {
         return CharacterDomain(
             id = from.id,
             episodeIdList = from.episodeIdList,
-            gender = mapGender(from.gender),
+            gender = from.gender,
             imageUrl = from.imageUrl,
             location = LocationCharacterDomain(
                 id = from.location.id,
@@ -23,46 +23,16 @@ class CharacterModelMapper : Mapper<CharacterEntity, CharacterDomain> {
                 name = from.origin.name
             ),
             species = from.species,
-            status = mapStatus(from.status),
+            status = from.status,
             type = from.type
         )
-    }
-
-    private fun mapGender(gender: String) = when (gender.toLowerCase()) {
-        "male" -> Gender.MALE
-        "female" -> Gender.FEMALE
-        "genderless" -> Gender.GENDERLESS
-        "unknown" -> Gender.UNKNOWN
-        else -> Gender.UNKNOWN
-    }
-
-    private fun mapGender(gender: Gender) = when (gender) {
-        Gender.MALE -> "male"
-        Gender.FEMALE -> "female"
-        Gender.GENDERLESS -> "genderless"
-        Gender.UNKNOWN -> "unknown"
-        else -> "unknown"
-    }
-
-    private fun mapStatus(status: String) = when (status.toLowerCase()) {
-        "alive" -> Status.ALIVE
-        "dead" -> Status.DEAD
-        "unknown" -> Status.UNKNOWN
-        else -> Status.UNKNOWN
-    }
-
-    private fun mapStatus(status: Status) = when (status) {
-        Status.ALIVE -> "alive"
-        Status.DEAD -> "dead"
-        Status.UNKNOWN -> "unknown"
-        else -> "unknown"
     }
 
     override fun mapToEntity(from: CharacterDomain): CharacterEntity {
         return CharacterEntity(
             id = from.id,
             episodeIdList = from.episodeIdList,
-            gender = mapGender(from.gender),
+            gender = from.gender,
             imageUrl = from.imageUrl,
             location = LocationCharacterEntity(
                 id = from.location.id,
@@ -74,7 +44,7 @@ class CharacterModelMapper : Mapper<CharacterEntity, CharacterDomain> {
                 name = from.origin.name
             ),
             species = from.species,
-            status = mapStatus(from.status),
+            status = from.status,
             type = from.type
         )
     }

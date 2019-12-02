@@ -6,7 +6,7 @@
     <data>
         <variable
             name="character"
-            type="guuilp.github.com.character.model.CharacterView" />
+            type="guuilp.github.com.character.model.CharacterListItemView" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

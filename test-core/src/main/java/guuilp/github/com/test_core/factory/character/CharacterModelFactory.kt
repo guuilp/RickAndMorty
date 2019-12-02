@@ -14,13 +14,13 @@ object CharacterModelFactory {
     fun make(
         id: String = RandomUtil.string(),
         episode: List<String> = RandomUtil.stringList(),
-        gender: Gender = RandomUtil.enum(Gender::class.java),
+        gender: String = RandomUtil.string(),
         image: String = RandomUtil.string(),
         location: LocationCharacterDomain = makeLocationCharacterModel(),
         name: String = RandomUtil.string(),
         origin: OriginCharacterDomain = makeOriginCharacterModel(),
         species: String = RandomUtil.string(),
-        status: Status = RandomUtil.enum(Status::class.java),
+        status: String = RandomUtil.string(),
         type: String = RandomUtil.string()
     ) = CharacterDomain(
         id = id,
