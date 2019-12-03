@@ -11,7 +11,13 @@ class CharacterRemoteImpl(
     private val responseToEntityMapper: EntityMapper<CharacterResponse, CharacterEntity>
 ) : CharacterRemote {
 
-    override suspend fun getAllCharacter() = safeApiCall {
+    override suspend fun getAllCharacters() = safeApiCall {
         characterService.getAllCharacter()
-    }?.results?.map { responseToEntityMapper.mapFromRemote(it) } ?: emptyList()
+    }?.results?.map { responseToEntityMapper.mapFromRemote(it) }
+
+    override suspend fun getSingleCharacter(id: String): CharacterEntity? {
+        val result = safeApiCall { characterService.getCharactersById(id) }
+
+        return result?.let { responseToEntityMapper.mapFromRemote(it) }
+    }
 }

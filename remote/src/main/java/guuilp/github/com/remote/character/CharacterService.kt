@@ -12,7 +12,7 @@ interface CharacterService {
     suspend fun getAllCharacter(): Response<CharacterCompleteResponse>
 
     @GET("character/{characterIds}")
-    suspend fun getCharactersById(@Path("characterIds") ids: List<String>): Response<List<CharacterResponse>>
+    suspend fun getCharactersById(@Path("characterIds") id: String): Response<CharacterResponse>
 
     @GET("character")
     suspend fun filterCharacter(
