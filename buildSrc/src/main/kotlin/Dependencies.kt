@@ -40,6 +40,7 @@ object Modules {
 private object SharedVersions {
     const val coroutines = "1.3.2"
     const val kotlin = "1.3.60"
+    const val koin = "2.0.1"
 }
 
 object Libraries {
@@ -86,14 +87,11 @@ object RetrofitLibraries {
 }
 
 object KoinLibraries {
-    private object Versions {
-        const val koin = "2.0.1"
-    }
 
-    const val koinCore = "org.koin:koin-core:${Versions.koin}"
-    const val koinAndroid = "org.koin:koin-android:${Versions.koin}"
-    const val koinLifeCycle = "org.koin:koin-androidx-scope:${Versions.koin}"
-    const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
+    const val koinCore = "org.koin:koin-core:${SharedVersions.koin}"
+    const val koinAndroid = "org.koin:koin-android:${SharedVersions.koin}"
+    const val koinLifeCycle = "org.koin:koin-androidx-scope:${SharedVersions.koin}"
+    const val koinViewModel = "org.koin:koin-androidx-viewmodel:${SharedVersions.koin}"
 }
 
 object TestLibraries {
@@ -108,4 +106,5 @@ object TestLibraries {
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${SharedVersions.coroutines}"
     const val junitKotlin = "org.jetbrains.kotlin:kotlin-test-junit:${SharedVersions.kotlin}"
     const val lifecycleTesting = "androidx.arch.core:core-testing:${Versions.lifecycle}"
+    const val koin = "org.koin:koin-test:${SharedVersions.koin}"
 }

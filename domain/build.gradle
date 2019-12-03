@@ -2,11 +2,12 @@ apply from: "../build-system/kotlin-module.gradle"
 
 dependencies {
     implementation KoinLibraries.koinCore
+
     testImplementation TestLibraries.junit4
     testImplementation TestLibraries.junitKotlin
     testImplementation TestLibraries.mockk
     testImplementation TestLibraries.coroutines
+    testImplementation project(Modules.testCore)
 
-    implementation project(Modules.testCore)
     api project(Modules.domainModel)
 }

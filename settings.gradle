@@ -1,3 +1,4 @@
+include ":di-validation"
 include ":remote"
 include ":app"
 include ":character"

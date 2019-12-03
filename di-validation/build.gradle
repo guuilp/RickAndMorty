@@ -1,0 +1,18 @@
+apply plugin: "com.android.library"
+apply from: "../build-system/android-module.gradle"
+
+dependencies {
+    implementation(Libraries.kotlinStdLib)
+
+    implementation project(Modules.remote)
+    implementation project(Modules.data)
+    implementation project(Modules.domain)
+    implementation project(Modules.character)
+    implementation project(Modules.episode)
+    implementation project(Modules.location)
+
+    testImplementation(TestLibraries.junit4)
+    testImplementation(TestLibraries.koin)
+    testImplementation project(Modules.testCore)
+    testImplementation TestLibraries.coroutines
+}

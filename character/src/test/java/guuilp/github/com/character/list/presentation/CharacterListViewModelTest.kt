@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import guuilp.github.com.character.common.Mapper
 import guuilp.github.com.character.factory.CharacterListItemViewFactory
 import guuilp.github.com.character.list.model.CharacterListItemView
-import guuilp.github.com.domain.common.UseCase
+import guuilp.github.com.domain.character.interactor.GetAllCharactersUseCase
 import guuilp.github.com.domain_model.character.CharacterDomain
 import guuilp.github.com.test_core.factory.character.CharacterDomainFactory
 import guuilp.github.com.test_core.util.CoroutinesTestRule
@@ -27,7 +27,7 @@ class CharacterListViewModelTest {
     val coroutinesRule = CoroutinesTestRule()
 
     private lateinit var characterListViewModel: CharacterListViewModel
-    private val getAllCharactersUseCase = mockk<UseCase<List<CharacterDomain>, Void?>>()
+    private val getAllCharactersUseCase = mockk<GetAllCharactersUseCase>()
     private val characterViewMapper = mockk<Mapper<CharacterDomain, CharacterListItemView>>()
 
     @Before
