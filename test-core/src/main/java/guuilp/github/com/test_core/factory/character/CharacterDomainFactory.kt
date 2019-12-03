@@ -3,7 +3,7 @@ package guuilp.github.com.test_core.factory.character
 import guuilp.github.com.domain_model.character.*
 import guuilp.github.com.test_core.util.RandomUtil
 
-object CharacterModelFactory {
+object CharacterDomainFactory {
 
     fun makeList(
         quantity: Int = RandomUtil.int()

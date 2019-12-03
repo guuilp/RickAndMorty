@@ -5,7 +5,7 @@ import guuilp.github.com.data.common.Mapper
 import guuilp.github.com.data.factory.CharacterEntityFactory
 import guuilp.github.com.data_model.character.CharacterEntity
 import guuilp.github.com.domain_model.character.CharacterDomain
-import guuilp.github.com.test_core.factory.character.CharacterModelFactory
+import guuilp.github.com.test_core.factory.character.CharacterDomainFactory
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -27,7 +27,7 @@ class CharacterDataRepositoryTest {
 
     @Test
     fun getAllCharacters_returnsExpectedModel() = runBlockingTest {
-        val expectedModel = CharacterModelFactory.make()
+        val expectedModel = CharacterDomainFactory.make()
 
         prepareScenario(
             remoteResult = CharacterEntityFactory.makeList(1),
@@ -41,9 +41,9 @@ class CharacterDataRepositoryTest {
 
     private fun prepareScenario(
         remoteResult: List<CharacterEntity> = CharacterEntityFactory.makeList(1),
-        mapperResult: CharacterDomain = CharacterModelFactory.make()
+        mapperResult: CharacterDomain = CharacterDomainFactory.make()
     ) {
-        coEvery { characterRemote.getAllCharacter() } answers { remoteResult }
+        coEvery { characterRemote.getAllCharacters() } answers { remoteResult }
         every { characterModelMapper.mapFromEntity(any()) } answers { mapperResult }
     }
 

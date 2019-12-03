@@ -6,7 +6,7 @@ import guuilp.github.com.character.factory.CharacterListItemViewFactory
 import guuilp.github.com.character.list.model.CharacterListItemView
 import guuilp.github.com.domain.common.UseCase
 import guuilp.github.com.domain_model.character.CharacterDomain
-import guuilp.github.com.test_core.factory.character.CharacterModelFactory
+import guuilp.github.com.test_core.factory.character.CharacterDomainFactory
 import guuilp.github.com.test_core.util.CoroutinesTestRule
 import io.mockk.coEvery
 import io.mockk.every
@@ -32,7 +32,7 @@ class CharacterListViewModelTest {
 
     @Before
     fun setup() {
-        coEvery { getAllCharactersUseCase() } answers { CharacterModelFactory.makeList() }
+        coEvery { getAllCharactersUseCase() } answers { CharacterDomainFactory.makeList() }
         every { characterViewMapper.mapToView(any()) } answers { CharacterListItemViewFactory.make() }
         characterListViewModel = CharacterListViewModel(
             getAllCharactersUseCase,
