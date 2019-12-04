@@ -20,4 +20,8 @@ class CharacterListViewModel(
             model.characters.postValue(result)
         }
     }
+
+    fun itemClick(characterId: String) {
+        model.action.postValue(CharacterListModel.Action.ItemClick(characterId))
+    }
 }

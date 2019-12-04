@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import guuilp.github.com.character.databinding.FragmentCharacterListBinding
-import guuilp.github.com.character.di.characterModule
+import guuilp.github.com.character.di.injectFeature
+import guuilp.github.com.character.list.presentation.CharacterListModel
 import guuilp.github.com.character.list.presentation.CharacterListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.context.loadKoinModules
-
-private val loadFeature by lazy { loadKoinModules(characterModule) }
-private fun injectFeature() = loadFeature
 
 class CharacterListFragment : Fragment() {
 
@@ -27,7 +26,18 @@ class CharacterListFragment : Fragment() {
             injectFeature()
             lifecycleOwner = viewLifecycleOwner
             viewModel = characterListViewModel
-            characterList.adapter = CharacterListAdapter()
+            characterList.adapter = CharacterListAdapter(characterListViewModel)
         }.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        characterListViewModel.model.action.observe(viewLifecycleOwner) { action ->
+            if (action is CharacterListModel.Action.ItemClick) {
+                val navAction =
+                    CharacterListFragmentDirections.actionCharacterlistToCharacterdetail(action.characterId)
+                findNavController().navigate(navAction)
+            }
+        }
     }
 }

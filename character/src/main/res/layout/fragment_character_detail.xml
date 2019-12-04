@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="character"
-            type="guuilp.github.com.character.list.model.CharacterListItemView" />
+            name="viewModel"
+            type="guuilp.github.com.character.detail.presentation.CharacterDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,9 +17,9 @@
 
         <ImageView
             android:id="@+id/image"
-            app:loadImage="@{character.imageUrl}"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            app:loadImage="@{viewModel.model.character.imageUrl}"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,7 +30,7 @@
             app:layout_constraintLeft_toRightOf="@id/image"
             app:layout_constraintTop_toTopOf="@id/image"
             android:layout_marginStart="8dp"
-            android:text="@{character.name}"
+            android:text="@{viewModel.model.character.name}"
             tools:text="Rick Smith" />
 
         <TextView
@@ -40,7 +40,7 @@
             app:layout_constraintLeft_toRightOf="@id/image"
             app:layout_constraintTop_toBottomOf="@id/name"
             android:layout_marginStart="8dp"
-            android:text="@{character.status}"
+            android:text="@{viewModel.model.character.status}"
             tools:text="Alive" />
 
         <TextView
@@ -50,7 +50,7 @@
             app:layout_constraintLeft_toRightOf="@id/image"
             app:layout_constraintTop_toBottomOf="@id/status"
             android:layout_marginStart="8dp"
-            android:text="@{character.species}"
+            android:text="@{viewModel.model.character.species}"
             tools:text="Human" />
 
         <TextView
@@ -60,7 +60,7 @@
             app:layout_constraintLeft_toRightOf="@id/image"
             app:layout_constraintTop_toBottomOf="@id/species"
             android:layout_marginStart="8dp"
-            android:text="@{character.type}"
+            android:text="@{viewModel.model.character.type}"
             tools:text="Genetic experiment" />
 
         <TextView
@@ -70,7 +70,7 @@
             app:layout_constraintLeft_toRightOf="@id/image"
             app:layout_constraintTop_toBottomOf="@id/type"
             android:layout_marginStart="8dp"
-            android:text="@{character.gender}"
+            android:text="@{viewModel.model.character.gender}"
             tools:text="Male" />
 
         <TextView
@@ -80,17 +80,19 @@
             app:layout_constraintLeft_toRightOf="@id/image"
             app:layout_constraintTop_toBottomOf="@id/gender"
             android:layout_marginStart="8dp"
-            android:text="@{character.origin.name}"
-            tools:text="Earth (Replacement Dimension)" />
+            android:text="@{viewModel.model.character.origin.name}"
+            tools:text="Earth (C-137)" />
 
         <TextView
             android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@id/image"
-            app:layout_constraintTop_toBottomOf="@id/gender"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintTop_toBottomOf="@id/origin"
             android:layout_marginStart="8dp"
-            android:text="@{character.location.name}"
+            android:text="@{viewModel.model.character.location.name}"
             tools:text="Earth (Replacement Dimension)" />
 
         <androidx.recyclerview.widget.RecyclerView

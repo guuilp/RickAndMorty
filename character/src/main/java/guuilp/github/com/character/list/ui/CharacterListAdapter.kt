@@ -7,8 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import guuilp.github.com.character.common.HashItemCallback
 import guuilp.github.com.character.databinding.CharacterListItemBinding
 import guuilp.github.com.character.list.model.CharacterListItemView
+import guuilp.github.com.character.list.presentation.CharacterListViewModel
 
-class CharacterListAdapter : ListAdapter<CharacterListItemView, CharacterListAdapter.ViewHolder>(
+class CharacterListAdapter(
+    private val characterListViewModel: CharacterListViewModel
+) : ListAdapter<CharacterListItemView, CharacterListAdapter.ViewHolder>(
     HashItemCallback()
 ) {
 
@@ -19,7 +22,10 @@ class CharacterListAdapter : ListAdapter<CharacterListItemView, CharacterListAda
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.character = getItem(position)
+        holder.binding.apply {
+            character = getItem(position)
+            viewModel = characterListViewModel
+        }
     }
 
     class ViewHolder(val binding: CharacterListItemBinding) : RecyclerView.ViewHolder(binding.root)

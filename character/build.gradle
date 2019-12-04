@@ -1,6 +1,7 @@
 apply plugin: "com.android.library"
 apply from: "../build-system/android-module.gradle"
-apply plugin: 'kotlin-kapt'
+apply plugin: "kotlin-kapt"
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 dependencies {
     implementation(Libraries.kotlinStdLib)

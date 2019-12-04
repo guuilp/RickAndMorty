@@ -7,13 +7,18 @@
         <variable
             name="character"
             type="guuilp.github.com.character.list.model.CharacterListItemView" />
+
+        <variable
+            name="viewModel"
+            type="guuilp.github.com.character.list.presentation.CharacterListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:onClick="@{() -> viewModel.itemClick(character.id)}">
 
         <ImageView
             android:id="@+id/image"
