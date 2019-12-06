@@ -17,6 +17,7 @@ dependencies {
     implementation(KoinLibraries.koinAndroid)
     implementation(KoinLibraries.koinViewModel)
     implementation(Libraries.coil)
+    implementation(Libraries.lottie)
 
     testImplementation TestLibraries.junit4
     testImplementation TestLibraries.junitKotlin
