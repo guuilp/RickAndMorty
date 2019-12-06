@@ -39,7 +39,7 @@ object Modules {
 
 private object SharedVersions {
     const val coroutines = "1.3.2"
-    const val kotlin = "1.3.60"
+    const val kotlin = "1.3.61"
     const val koin = "2.0.1"
 }
 
@@ -47,12 +47,13 @@ object Libraries {
     private object Versions {
         const val appCompat = "1.1.0"
         const val constraintLayout = "1.1.3"
-        const val navigation = "2.1.0"
-        const val ktx = "2.1.0"
-        const val fragment = "1.2.0-rc02"
+        const val navigation = "2.2.0-rc03"
+        const val ktx = "2.2.0-rc03"
+        const val fragment = "1.2.0-rc03"
         const val material = "1.0.0"
         const val moshi = "1.9.2"
         const val coil = "0.8.0"
+        const val lottie = "3.3.0"
     }
 
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${SharedVersions.kotlin}"
@@ -72,6 +73,7 @@ object Libraries {
     const val moshiCodeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${SharedVersions.coroutines}"
     const val coil = "io.coil-kt:coil:${Versions.coil}"
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 }
 
 object RetrofitLibraries {
