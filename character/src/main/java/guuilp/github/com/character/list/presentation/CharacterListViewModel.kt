@@ -3,6 +3,7 @@ package guuilp.github.com.character.list.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import guuilp.github.com.character.common.Mapper
+import guuilp.github.com.character.common.executeWithLoading
 import guuilp.github.com.character.list.model.CharacterListItemView
 import guuilp.github.com.domain.character.interactor.GetAllCharactersUseCase
 import guuilp.github.com.domain_model.character.CharacterDomain
@@ -15,18 +16,16 @@ class CharacterListViewModel(
 ) : ViewModel() {
 
     init {
-        loadAllCharacters()
+        viewModelScope.launch {
+            executeWithLoading(model.isLoading) {
+                loadAllCharacters()
+            }
+        }
     }
 
-    fun loadAllCharacters() {
-        viewModelScope.launch {
-            model.isLoading.postValue(true)
-
-            val result = getAllCharactersUseCase().map { characterListItemViewMapper.mapToView(it) }
-            model.characters.postValue(result)
-
-            model.isLoading.postValue(false)
-        }
+    private suspend fun loadAllCharacters() {
+        val result = getAllCharactersUseCase().map { characterListItemViewMapper.mapToView(it) }
+        model.characters.postValue(result)
     }
 
     fun itemClick(characterId: String) {
