@@ -3,22 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
             type="guuilp.github.com.character.list.presentation.CharacterListViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibleOrGone="@{viewModel.model.isLoading()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/characterList"
-            app:items="@{viewModel.model.characters}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:items="@{viewModel.model.characters}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="vertical"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

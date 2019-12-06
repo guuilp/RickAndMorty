@@ -1,5 +1,6 @@
 package guuilp.github.com.character.common
 
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ListAdapter
@@ -8,7 +9,7 @@ import coil.api.load
 
 @BindingAdapter("loadImage")
 fun ImageView.loadImage(oldUrl: String?, newUrl: String?) {
-    if(oldUrl != newUrl) this.load(newUrl)
+    if (oldUrl != newUrl) this.load(newUrl)
 }
 
 @BindingAdapter("items")
@@ -19,5 +20,13 @@ fun <T> RecyclerView.setItems(
     if (previousItems != newItems) {
         val adapter = this.adapter as ListAdapter<T, RecyclerView.ViewHolder>
         adapter.submitList(newItems)
+    }
+}
+
+@BindingAdapter("android:visibleOrGone")
+fun View.changeVisibility(oldVisible: Boolean?, newVisible: Boolean?) {
+    if (oldVisible != newVisible) {
+        if (newVisible == true) this.visibility = View.VISIBLE
+        else this.visibility = View.GONE
     }
 }
