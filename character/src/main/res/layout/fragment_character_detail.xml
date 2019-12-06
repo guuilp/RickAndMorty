@@ -114,8 +114,9 @@
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
+            app:items="@{viewModel.model.character.episodeIdList}"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/location"/>
+            app:layout_constraintTop_toBottomOf="@+id/image"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

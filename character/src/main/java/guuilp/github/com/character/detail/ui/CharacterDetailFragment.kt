@@ -26,6 +26,7 @@ class CharacterDetailFragment : Fragment() {
             injectFeature()
             lifecycleOwner = viewLifecycleOwner
             viewModel = characterListViewModel
+            episodeList.adapter = CharacterDetailEpisodeListAdapter(characterListViewModel)
         }.root
     }
 }

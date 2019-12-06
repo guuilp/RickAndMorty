@@ -28,4 +28,8 @@ class CharacterDetailViewModel(
         val result = getSingleCharactersUseCase.invoke(characterId)
         model.character.postValue(characterDetailViewMapper.mapToView(result))
     }
+
+    fun episodeClick() {
+
+    }
 }
