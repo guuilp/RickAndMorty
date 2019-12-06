@@ -1,5 +1,6 @@
 package guuilp.github.com.di_validation
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import guuilp.github.com.character.detail.presentation.CharacterDetailViewModel
 import guuilp.github.com.character.di.characterModule
 import guuilp.github.com.data.di.dataModule
@@ -16,6 +17,9 @@ import org.koin.test.check.checkModules
 
 @ExperimentalCoroutinesApi
 class ModuleTest : KoinTest {
+
+    @get:Rule
+    val instantTask = InstantTaskExecutorRule()
     @get:Rule
     val coroutinesRule = CoroutinesTestRule()
 

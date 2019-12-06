@@ -13,6 +13,7 @@ dependencies {
 
     testImplementation(TestLibraries.junit4)
     testImplementation(TestLibraries.koin)
-    testImplementation project(Modules.testCore)
+    testImplementation TestLibraries.lifecycleTesting
     testImplementation TestLibraries.coroutines
+    testImplementation project(Modules.testCore)
 }
