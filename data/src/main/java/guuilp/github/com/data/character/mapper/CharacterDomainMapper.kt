@@ -6,7 +6,7 @@ import guuilp.github.com.data_model.character.LocationCharacterEntity
 import guuilp.github.com.data_model.character.OriginCharacterEntity
 import guuilp.github.com.domain_model.character.*
 
-class CharacterModelMapper : Mapper<CharacterEntity, CharacterDomain> {
+class CharacterDomainMapper : Mapper<CharacterEntity, CharacterDomain> {
     override fun mapFromEntity(from: CharacterEntity): CharacterDomain {
         return CharacterDomain(
             id = from.id,
