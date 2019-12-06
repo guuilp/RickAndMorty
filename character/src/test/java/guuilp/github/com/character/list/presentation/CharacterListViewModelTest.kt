@@ -13,10 +13,14 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
+
+private const val CHARACTER_LIST_SIZE = 2
+private const val CHARACTER_ID = "1"
 
 @ExperimentalCoroutinesApi
 class CharacterListViewModelTest {
@@ -32,8 +36,8 @@ class CharacterListViewModelTest {
 
     @Before
     fun setup() {
-        coEvery { getAllCharactersUseCase() } answers { CharacterDomainFactory.makeList() }
-        every { characterViewMapper.mapToView(any()) } answers { CharacterListItemViewFactory.make() }
+        prepareScenario()
+
         characterListViewModel = CharacterListViewModel(
             getAllCharactersUseCase,
             characterViewMapper
@@ -41,7 +45,31 @@ class CharacterListViewModelTest {
     }
 
     @Test
-    fun getCharacters() = coroutinesRule.testDispatcher.runBlockingTest {
-        assertNotNull(characterListViewModel.model.characters.value)
+    fun init_loadAllCharacters_loadingFalse() = coroutinesRule.testDispatcher.runBlockingTest {
+        assertTrue(characterListViewModel.model.isLoading.value == false)
+    }
+
+    @Test
+    fun init_loadAllCharacters_correctCharacterListSize() =
+        coroutinesRule.testDispatcher.runBlockingTest {
+            assertEquals(2, characterListViewModel.model.characters.value?.size)
+        }
+
+    @Test
+    fun itemClick_setCorrectAction() = coroutinesRule.testDispatcher.runBlockingTest {
+        characterListViewModel.itemClick(CHARACTER_ID)
+
+        val action = characterListViewModel.model.action.value
+
+        assertTrue(action is CharacterListModel.Action.ItemClick)
+        assertEquals(CHARACTER_ID, action.characterId)
+    }
+
+    private fun prepareScenario(
+        getAllCharactersResult: List<CharacterDomain> = CharacterDomainFactory.makeList(quantity = CHARACTER_LIST_SIZE),
+        mapToViewResult: CharacterListItemView = CharacterListItemViewFactory.make()
+    ) {
+        coEvery { getAllCharactersUseCase() } answers { getAllCharactersResult }
+        every { characterViewMapper.mapToView(any()) } answers { mapToViewResult }
     }
 }

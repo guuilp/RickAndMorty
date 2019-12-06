@@ -9,16 +9,16 @@ import guuilp.github.com.domain_model.character.CharacterDomain
 import kotlinx.coroutines.launch
 
 class CharacterListViewModel(
-    val getAllCharactersUseCase: GetAllCharactersUseCase,
+    private val getAllCharactersUseCase: GetAllCharactersUseCase,
     private val characterListItemViewMapper: Mapper<CharacterDomain, CharacterListItemView>,
     val model: CharacterListModel = CharacterListModel()
 ) : ViewModel() {
 
     init {
-        load()
+        loadAllCharacters()
     }
 
-    private fun load() {
+    fun loadAllCharacters() {
         viewModelScope.launch {
             model.isLoading.postValue(true)
 
