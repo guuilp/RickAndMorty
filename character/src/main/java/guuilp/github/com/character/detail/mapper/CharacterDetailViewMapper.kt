@@ -9,6 +9,7 @@ import guuilp.github.com.domain_model.character.CharacterDomain
 class CharacterDetailViewMapper : Mapper<CharacterDomain, CharacterDetailView> {
     override fun mapToView(from: CharacterDomain) = CharacterDetailView(
         id = from.id,
+        episodeIdList = from.episodeIdList,
         gender = from.gender,
         imageUrl = from.imageUrl,
         location = LocationCharacterView(

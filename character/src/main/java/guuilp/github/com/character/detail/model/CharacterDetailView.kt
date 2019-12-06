@@ -2,6 +2,7 @@ package guuilp.github.com.character.detail.model
 
 data class CharacterDetailView(
     val id: String,
+    val episodeIdList: List<String>,
     val gender: String,
     val imageUrl: String,
     val location: LocationCharacterView,
