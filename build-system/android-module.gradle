@@ -1,5 +1,6 @@
 apply plugin: BuildPlugins.kotlinAndroid
 apply plugin: BuildPlugins.kotlinAndroidExtensions
+apply plugin: BuildPlugins.junit5
 
 repositories {
     mavenCentral()

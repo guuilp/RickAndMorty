@@ -11,6 +11,7 @@ object BuildPlugins {
     const val androidApplication = "com.android.application"
     const val kotlinAndroid = "kotlin-android"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
+    const val junit5 = "de.mannodermaus.android-junit5"
 
 }
 
@@ -109,4 +110,15 @@ object TestLibraries {
     const val junitKotlin = "org.jetbrains.kotlin:kotlin-test-junit:${SharedVersions.kotlin}"
     const val lifecycleTesting = "androidx.arch.core:core-testing:${Versions.lifecycle}"
     const val koin = "org.koin:koin-test:${SharedVersions.koin}"
+}
+
+object Junit5 {
+    private object Versions {
+        const val junit5 = "5.5.2"
+    }
+
+    const val jupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junit5}"
+    const val jupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit5}"
+    const val jupiterParams = "org.junit.jupiter:junit-jupiter-params:${Versions.junit5}"
+    const val junitVintage = "org.junit.vintage:junit-vintage-engine:${Versions.junit5}"
 }

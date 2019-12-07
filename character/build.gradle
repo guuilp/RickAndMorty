@@ -19,11 +19,15 @@ dependencies {
     implementation(Libraries.coil)
     implementation(Libraries.lottie)
 
-    testImplementation TestLibraries.junit4
-    testImplementation TestLibraries.junitKotlin
     testImplementation TestLibraries.mockk
     testImplementation TestLibraries.coroutines
     testImplementation TestLibraries.lifecycleTesting
+    testImplementation TestLibraries.junit4
+    testImplementation TestLibraries.junitKotlin
+    testImplementation Junit5.jupiterApi
+    testImplementation Junit5.jupiterParams
+    testRuntimeOnly Junit5.junitVintage
+    testRuntimeOnly Junit5.jupiterEngine
     testImplementation project(Modules.testCore)
 
     implementation project(Modules.domain)
