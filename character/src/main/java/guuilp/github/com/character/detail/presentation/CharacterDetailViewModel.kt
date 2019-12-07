@@ -10,9 +10,9 @@ import guuilp.github.com.domain_model.character.CharacterDomain
 import kotlinx.coroutines.launch
 
 class CharacterDetailViewModel(
-    val characterId: String,
+    private val characterId: String,
     private val getSingleCharactersUseCase: GetSingleCharacterUseCase,
-    val characterDetailViewMapper: Mapper<CharacterDomain, CharacterDetailView>,
+    private val characterDetailViewMapper: Mapper<CharacterDomain, CharacterDetailView>,
     val model: CharacterDetailModel = CharacterDetailModel()
 ) : ViewModel() {
 
@@ -25,7 +25,7 @@ class CharacterDetailViewModel(
     }
 
     private suspend fun loadCharacterDetail() {
-        val result = getSingleCharactersUseCase.invoke(characterId)
+        val result = getSingleCharactersUseCase(characterId)
         model.character.postValue(characterDetailViewMapper.mapToView(result))
     }
 
