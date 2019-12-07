@@ -12,6 +12,13 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
+test {
+    testLogging {
+        events "skipped", "passed", "failed"
+        exceptionFormat = 'full'
+    }
+}
+
 dependencies {
     implementation(Libraries.kotlinStdLib)
 }
