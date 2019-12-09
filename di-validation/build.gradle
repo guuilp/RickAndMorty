@@ -12,6 +12,8 @@ dependencies {
     implementation project(Modules.location)
 
     testImplementation(TestLibraries.junit4)
+    testRuntimeOnly Junit5.junitVintage
+
     testImplementation(TestLibraries.koin)
     testImplementation TestLibraries.lifecycleTesting
     testImplementation TestLibraries.coroutines
