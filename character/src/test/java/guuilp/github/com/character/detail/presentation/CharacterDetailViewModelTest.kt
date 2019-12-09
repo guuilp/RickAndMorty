@@ -1,7 +1,5 @@
 package guuilp.github.com.character.detail.presentation
 
-import guuilp.github.com.character.CoroutinesTestExtension
-import guuilp.github.com.character.InstantTaskExecutorExtension
 import guuilp.github.com.character.common.Mapper
 import guuilp.github.com.character.detail.model.CharacterDetailView
 import guuilp.github.com.character.factory.CharacterDetailViewFactory
@@ -9,19 +7,20 @@ import guuilp.github.com.domain.character.interactor.GetSingleCharacterUseCase
 import guuilp.github.com.domain_model.character.CharacterDomain
 import guuilp.github.com.test_core.factory.character.CharacterDomainFactory
 import guuilp.github.com.test_core.util.RandomUtil
+import guuilp.github.com.test_core_android.common.CoroutinesTestExtension
+import guuilp.github.com.test_core_android.common.InstantTaskExecutorExtension
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.*
 import org.junit.jupiter.api.extension.ExtendWith
 import org.junit.jupiter.api.extension.Extensions
-import kotlin.test.assertNotNull
 
 @ExperimentalCoroutinesApi
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Extensions(
     ExtendWith(InstantTaskExecutorExtension::class),
     ExtendWith(CoroutinesTestExtension::class)
@@ -32,6 +31,7 @@ class CharacterDetailViewModelTest(private val testDispatcher: TestCoroutineDisp
     private val characterId = RandomUtil.string()
     private val getSingleCharactersUseCase = mockk<GetSingleCharacterUseCase>()
     private val characterDetailViewMapper = mockk<Mapper<CharacterDomain, CharacterDetailView>>()
+    private val characterDetailView = CharacterDetailViewFactory.make()
 
     @BeforeEach
     fun setUp() {
@@ -44,13 +44,23 @@ class CharacterDetailViewModelTest(private val testDispatcher: TestCoroutineDisp
         )
     }
 
+    @DisplayName("On CharacterDetailViewModel init, loading should be false")
     @Test
-    fun bla() = testDispatcher.runBlockingTest {
-        assertNotNull(characterDetailViewModel.model.character)
+    fun initLoadCharacterDetail_loadingFalse() = testDispatcher.runBlockingTest {
+        Assertions.assertTrue(characterDetailViewModel.model.isLoading.value == false)
     }
 
-    private fun prepareScenario() {
-        coEvery { getSingleCharactersUseCase(any()) } answers { CharacterDomainFactory.make() }
-        every { characterDetailViewMapper.mapToView(any()) } answers { CharacterDetailViewFactory.make() }
+    @DisplayName("On CharacterDetailViewModel init, the character should be correctly set")
+    @Test
+    fun initLoadCharacterDetail_correctCharacterSet() = testDispatcher.runBlockingTest {
+        Assertions.assertEquals(characterDetailView, characterDetailViewModel.model.character.value)
+    }
+
+    private fun prepareScenario(
+        getSingleCharacterResult: CharacterDomain = CharacterDomainFactory.make(),
+        mapToViewResult: CharacterDetailView = characterDetailView
+    ) {
+        coEvery { getSingleCharactersUseCase(any()) } answers { getSingleCharacterResult }
+        every { characterDetailViewMapper.mapToView(any()) } answers { mapToViewResult }
     }
 }

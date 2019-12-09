@@ -28,7 +28,7 @@ dependencies {
     testImplementation Junit5.jupiterParams
     testRuntimeOnly Junit5.junitVintage
     testRuntimeOnly Junit5.jupiterEngine
-    testImplementation project(Modules.testCore)
+    testImplementation project(Modules.testCoreAndroid)
 
     implementation project(Modules.domain)
 }

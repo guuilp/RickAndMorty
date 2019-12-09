@@ -1,4 +1,4 @@
-package guuilp.github.com.character
+package guuilp.github.com.test_core_android.common
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -1,3 +1,4 @@
+include ":test-core-android"
 include ":di-validation"
 include ":remote"
 include ":app"

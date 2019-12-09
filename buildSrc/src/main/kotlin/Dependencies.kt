@@ -36,6 +36,7 @@ object Modules {
     const val domainModel = ":domain-model"
     const val remote = ":remote"
     const val testCore = ":test-core"
+    const val testCoreAndroid = ":test-core-android"
 }
 
 private object SharedVersions {

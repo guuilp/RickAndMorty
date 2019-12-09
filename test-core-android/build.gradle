@@ -1,0 +1,18 @@
+apply plugin: "com.android.library"
+apply from: "../build-system/android-module.gradle"
+
+dependencies {
+
+    implementation(Libraries.liveData)
+    implementation(Libraries.viewModel)
+    implementation TestLibraries.coroutines
+    implementation TestLibraries.junit4
+    implementation TestLibraries.junitKotlin
+    implementation project(Modules.domainModel)
+    implementation Junit5.jupiterApi
+    implementation Junit5.jupiterParams
+    runtimeOnly Junit5.junitVintage
+    runtimeOnly Junit5.jupiterEngine
+
+    api project(Modules.testCore)
+}

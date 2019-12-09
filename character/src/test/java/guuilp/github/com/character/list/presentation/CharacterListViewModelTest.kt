@@ -46,7 +46,7 @@ class CharacterListViewModelTest {
     }
 
     @Test
-    fun init_loadAllCharacters_loadingFalse() = coroutinesRule.testDispatcher.runBlockingTest {
+    fun initLoadAllCharacters_loadingFalse() = coroutinesRule.testDispatcher.runBlockingTest {
         assertTrue(characterListViewModel.model.isLoading.value == false)
     }
 

@@ -1,4 +1,4 @@
-package guuilp.github.com.character
+package guuilp.github.com.test_core_android.common
 
 import androidx.arch.core.executor.ArchTaskExecutor
 import androidx.arch.core.executor.TaskExecutor
