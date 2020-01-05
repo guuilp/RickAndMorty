@@ -1,5 +1,3 @@
-
-
 object BuildPlugins {
 
     object Versions {
@@ -49,13 +47,14 @@ object Libraries {
     private object Versions {
         const val appCompat = "1.1.0"
         const val constraintLayout = "1.1.3"
-        const val navigation = "2.2.0-rc03"
-        const val ktx = "2.2.0-rc03"
-        const val fragment = "1.2.0-rc03"
+        const val navigation = "2.2.0-rc04"
+        const val lifecycle = "2.2.0-rc03"
+        const val fragment = "1.2.0-rc04"
         const val material = "1.0.0"
         const val moshi = "1.9.2"
-        const val coil = "0.8.0"
-        const val lottie = "3.3.0"
+        const val coil = "0.9.1"
+        const val lottie = "3.3.1"
+        const val recyclerView = "1.1.0"
     }
 
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${SharedVersions.kotlin}"
@@ -65,23 +64,24 @@ object Libraries {
     const val navigationFragment =
         "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
-    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.ktx}"
-    const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.ktx}"
+    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragment}"
     const val fragment = "androidx.fragment:fragment:${Versions.fragment}"
     const val material = "com.google.android.material:material:${Versions.material}"
-    const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
+    const val ktxCore = "androidx.core:core-ktx:${Versions.lifecycle}"
     const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     const val moshiCodeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${SharedVersions.coroutines}"
     const val coil = "io.coil-kt:coil:${Versions.coil}"
     const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
 }
 
 object RetrofitLibraries {
     private object Versions {
-        const val retrofit = "2.6.2"
-        const val okhttp = "3.14.0"
+        const val retrofit = "2.7.1"
+        const val okhttp = "3.14.4"
     }
 
     const val retrofit = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
@@ -91,7 +91,6 @@ object RetrofitLibraries {
 }
 
 object KoinLibraries {
-
     const val koinCore = "org.koin:koin-core:${SharedVersions.koin}"
     const val koinAndroid = "org.koin:koin-android:${SharedVersions.koin}"
     const val koinLifeCycle = "org.koin:koin-androidx-scope:${SharedVersions.koin}"

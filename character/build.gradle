@@ -18,6 +18,7 @@ dependencies {
     implementation(KoinLibraries.koinViewModel)
     implementation(Libraries.coil)
     implementation(Libraries.lottie)
+    implementation(Libraries.recyclerView)
 
     testImplementation TestLibraries.mockk
     testImplementation TestLibraries.coroutines
