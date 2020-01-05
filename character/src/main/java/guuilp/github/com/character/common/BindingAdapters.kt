@@ -6,10 +6,14 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
+import coil.transform.CircleCropTransformation
 
 @BindingAdapter("loadImage")
 fun ImageView.loadImage(oldUrl: String?, newUrl: String?) {
-    if (oldUrl != newUrl) this.load(newUrl)
+    if (oldUrl != newUrl) this.load(newUrl) {
+        crossfade(true)
+        transformations(CircleCropTransformation())
+    }
 }
 
 @BindingAdapter("items")
