@@ -8,6 +8,6 @@ class GetSingleCharacterUseCaseImpl(
 ) : GetSingleCharacterUseCase {
 
     override suspend fun invoke(characterId: String) =
-        characterRepository.getSingleCharacter(characterId) ?: throw IllegalStateException()
+        characterRepository.getSingleCharacter(characterId)
 
 }

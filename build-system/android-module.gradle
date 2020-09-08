@@ -2,11 +2,6 @@ apply plugin: BuildPlugins.kotlinAndroid
 apply plugin: BuildPlugins.kotlinAndroidExtensions
 apply plugin: BuildPlugins.junit5
 
-repositories {
-    mavenCentral()
-    maven { url 'https://jitpack.io' }
-}
-
 android {
     compileSdkVersion AndroidSdk.compile
     defaultConfig {

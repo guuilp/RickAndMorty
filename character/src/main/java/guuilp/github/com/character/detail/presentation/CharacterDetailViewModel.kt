@@ -26,7 +26,9 @@ class CharacterDetailViewModel(
 
     private suspend fun loadCharacterDetail() {
         val result = getSingleCharactersUseCase(characterId)
-        model.character.postValue(characterDetailViewMapper.mapToView(result))
+        if(result != null) {
+            model.character.postValue(characterDetailViewMapper.mapToView(result))
+        }
     }
 
     fun episodeClick() {

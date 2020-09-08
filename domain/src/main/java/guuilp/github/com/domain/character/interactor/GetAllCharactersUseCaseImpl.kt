@@ -7,5 +7,5 @@ class GetAllCharactersUseCaseImpl(
 ) : GetAllCharactersUseCase {
 
     override suspend fun invoke() =
-        characterRepository.getAllCharacters() ?: throw IllegalStateException()
+        characterRepository.getAllCharacters() ?: emptyList()
 }

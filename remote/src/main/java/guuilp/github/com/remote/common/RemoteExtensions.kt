@@ -10,6 +10,7 @@ suspend fun <T> safeApiCall(
         if (response.isSuccessful) response.body()
         else null
     } catch (exception: Exception) {
+        println("Exception: $exception")
         null
     }
 }
